@@ -1,8 +1,9 @@
 'use client';
 import { useState } from 'react';
+import {MOCK_MESSAGES_BY_STATUS } from "../../lib/mockData";
 
 export default function TicketDetailsPage({ ticket, onClose,onViewConversation }) {
-
+console.log("the result is",MOCK_MESSAGES_BY_STATUS);
     return (
         <>
             <div style={{
@@ -149,7 +150,7 @@ export default function TicketDetailsPage({ ticket, onClose,onViewConversation }
                         </button>
 
                         {/* Only show if status is Assigned */}
-                        {ticket.status === 'Assigned' && (
+                        {MOCK_MESSAGES_BY_STATUS[ticket.status] && (
                             <button
                                 onClick={onViewConversation}
                                 style={{

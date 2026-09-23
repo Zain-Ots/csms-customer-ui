@@ -1,30 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-
-// ── Mock conversation history ──────────────────────────────
-const MOCK_MESSAGES = [
-    {
-        _id:       'msg001',
-        ticketId:  'TKT-1002',
-        senderId:  'AGENT001',
-        message:   'Hello! I am looking into your issue right away.',
-        createdAt: '2025-06-01T10:00:00.000Z'
-    },
-    {
-        _id:       'msg002',
-        ticketId:  'TKT-1002',
-        senderId:  'CUSTOMER001',
-        message:   'My order was supposed to arrive yesterday but I have not received it yet.',
-        createdAt: '2025-06-01T10:05:00.000Z'
-    },
-    {
-        _id:       'msg003',
-        ticketId:  'TKT-1002',
-        senderId:  'AGENT001',
-        message:   'I can see your order is with the delivery partner. It should arrive by end of day today.',
-        createdAt: '2025-06-01T10:08:00.000Z'
-    },
-];
+import {MOCK_MESSAGES_BY_STATUS } from "../../lib/mockData";
 
 const CURRENT_USER = sessionStorage.getItem("forlogin");
 
@@ -42,7 +18,7 @@ function formatDate(iso) {
 }
 
 export default function ConversationModal({ ticket, onClose }) {
-    const [messages, setMessages] = useState(MOCK_MESSAGES);
+    const [messages, setMessages] = useState(MOCK_MESSAGES_BY_STATUS[ticket.status] || []);
     const [reply,    setReply]    = useState('');
     const [sending,  setSending]  = useState(false);
     const bottomRef               = useRef(null);
