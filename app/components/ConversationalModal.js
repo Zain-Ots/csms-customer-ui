@@ -67,7 +67,7 @@ export default function ConversationModal({ ticket, onClose }) {
     };
 
     return (
-        <div style={{
+        <div className="support-modal-overlay" style={{
             position:        'fixed',
             inset:           0,
             zIndex:          100,
@@ -77,7 +77,7 @@ export default function ConversationModal({ ticket, onClose }) {
             backgroundColor: 'rgba(0,0,0,0.6)',
             padding:         '24px'
         }}>
-            <div style={{
+            <div className="support-conversation-modal" style={{
                 width:        '100%',
                 maxWidth:     '580px',
                 borderRadius: '16px',

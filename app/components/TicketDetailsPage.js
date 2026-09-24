@@ -6,7 +6,7 @@ export default function TicketDetailsPage({ ticket, onClose,onViewConversation }
 console.log("the result is",MOCK_MESSAGES_BY_STATUS);
     return (
         <>
-            <div style={{
+            <div className="support-modal-overlay" style={{
                 position:        'fixed',
                 inset:           0, 
                 zIndex:          50,
@@ -16,7 +16,7 @@ console.log("the result is",MOCK_MESSAGES_BY_STATUS);
                 backgroundColor: 'rgba(0,0,0,0.5)',
                 padding:         '24px'
             }}>
-                <div style={{
+                <div className="support-ticket-modal" style={{
                     position:     'relative',
                     width:        '100%',
                     maxWidth:     '680px',
