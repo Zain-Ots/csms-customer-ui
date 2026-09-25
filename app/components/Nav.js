@@ -21,8 +21,14 @@ export default function Nav() {
     const { showToast }    = useToast();
 
   useEffect(() => {
-    const stored = localStorage.getItem("user");
-    if (stored) setUser(JSON.parse(stored));
+    function loadUser() {
+      const stored = sessionStorage.getItem("user") || localStorage.getItem("user");
+      setUser(stored ? JSON.parse(stored) : null);
+    }
+
+    loadUser();
+    window.addEventListener("auth-change", loadUser);
+    return () => window.removeEventListener("auth-change", loadUser);
   }, []);
 
   useEffect(() => {
@@ -52,6 +58,10 @@ export default function Nav() {
       showToast(data.message);
       localStorage.removeItem("token");
       localStorage.removeItem("user");
+      sessionStorage.removeItem("token");
+      sessionStorage.removeItem("user");
+      setUser(null);
+      window.dispatchEvent(new Event("auth-change"));
       router.push("/login");
     }
   }
