@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { users } from "@/lib/mockData";
 
 export async function POST(req) {
-  const { email, password } = await req.json();
+  const { email, password, rememberMe = false } = await req.json();
   const user = users.find(u => u.email === email);
   if (!user) {
     return NextResponse.json({ success: false, message: "Invalid credentials", errors: [] }, { status: 401 });
@@ -15,7 +15,8 @@ export async function POST(req) {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
-    path: "/"
+    path: "/",
+    ...(rememberMe ? { maxAge: 60 * 60 * 24 * 30 } : {}),
   });
 console.log("the response on POST is",response)
   return response;

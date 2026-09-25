@@ -8,6 +8,7 @@ export default function LoginPage() {
     const router = useRouter();
     const [email,    setEmail]    = useState("");
     const [password, setPassword] = useState("");
+    const [rememberMe, setRememberMe] = useState(false);
     const [error,    setError]    = useState("");
     const [loading,  setLoading]  = useState(false);
 
@@ -23,11 +24,17 @@ export default function LoginPage() {
         setLoading(true);
 
         try {
-            const data = await loginUser(email, password);
+            const data = await loginUser(email, password, rememberMe);
             // localStorage.setItem("token", data.token);
             sessionStorage.setItem("forlogin",data.data.user._id);
-                  localStorage.setItem("token", data.data.token);
-      localStorage.setItem("user", JSON.stringify(data.data.user));
+            const storage = rememberMe ? localStorage : sessionStorage;
+            storage.setItem("token", data.data.token);
+            storage.setItem("user", JSON.stringify(data.data.user));
+            if (!rememberMe) {
+                localStorage.removeItem("token");
+                localStorage.removeItem("user");
+            }
+            window.dispatchEvent(new Event("auth-change"));
 
             console.log('the id si',data);
             //changed from dashboardforcsms to tickets
@@ -41,24 +48,24 @@ export default function LoginPage() {
     }
 
     return (
-        <main className="support-page"
+        <main className="support-page support-login-page"
               style={{ minHeight: '100vh',
                        display: 'flex',
                        alignItems: 'center',
                        justifyContent: 'center' }}>
 
-            <div style={{ width: '100%', maxWidth: '400px', padding: '0 16px' }}>
+            <div className="support-login-shell" style={{ width: '100%', maxWidth: '400px', padding: '0 16px' }}>
 
                 {/* ── Brand / Logo area ── */}
                 {/* ── Card — matches support-card ── */}
-                <div className="support-card" style={{ padding: '28px' }}>
+                <div className="support-card support-login-card" style={{ padding: '28px' }}>
 
                     <form onSubmit={handleSubmit}>
 
                         {/* Email */}
                         <div style={{ marginBottom: '16px' }}>
-                                          <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-                    <div style={{
+                                          <div className="support-login-heading" style={{ textAlign: 'center', marginBottom: '28px' }}>
+                    <div className="support-login-mark" style={{
                         width:          '44px',
                         height:         '44px',
                         borderRadius:   '10px',
@@ -142,6 +149,15 @@ export default function LoginPage() {
                                 style={{ width: '93%' }}
                             />
                         </div>
+
+                        <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#475569', marginTop: '12px' }}>
+                            <input
+                                type="checkbox"
+                                checked={rememberMe}
+                                onChange={e => setRememberMe(e.target.checked)}
+                            />
+                            Keep me signed in
+                        </label>
 
                         {/* Error message */}
                         {error && (

@@ -1366,3 +1366,107 @@ select.support-form-input {
   .support-ticket-modal > div:last-child button { flex: 1 1 100%; }
   .support-conversation-modal > div:last-child { padding: 12px !important; }
 }
+
+/* Customer-facing visual polish */
+.support-page {
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(204, 251, 241, .42), transparent 34rem),
+    #f5f8fa;
+}
+.support-container { max-width: 1240px; padding-top: 38px; }
+.support-page-header { margin-bottom: 28px; }
+.support-page-title { font-size: clamp(25px, 3vw, 31px); font-weight: 700; letter-spacing: -.04em; }
+.support-page-subtitle { margin-top: 8px; color: #718096; line-height: 1.55; }
+.support-dashboard-welcome { color: #0f766e; font-size: 12px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+.support-btn { min-height: 42px; height: auto; padding: 0 17px; border-radius: 10px; font-weight: 600; transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease; }
+.support-btn-primary { background: linear-gradient(135deg, #0f8278, #0b685f); box-shadow: 0 5px 12px rgba(15,118,110,.16); }
+.support-btn-primary:hover { background: linear-gradient(135deg, #0b766c, #09584f); box-shadow: 0 8px 18px rgba(15,118,110,.22); transform: translateY(-1px); }
+.support-btn-secondary { border-color: #dbe4e8; border-radius: 10px; font-weight: 600; }
+.support-btn-secondary:hover { border-color: #9bd5ce; background: #f0fdfa; color: #0b625b; }
+.support-card, .support-dashboard-stat-card, .support-help-card { border: 1px solid #e7edf0; border-radius: 15px; box-shadow: 0 5px 20px rgba(27,52,67,.045); }
+.support-card { overflow: hidden; }
+.support-card-header { background: rgba(255,255,255,.78); }
+.support-card-title { color: #172033; font-size: 16px; font-weight: 700; letter-spacing: -.015em; }
+.support-card-description { color: #7b8794; line-height: 1.5; }
+.support-dashboard-stats { gap: 16px; margin-bottom: 22px; }
+.support-dashboard-stat-card { position: relative; overflow: hidden; padding: 22px; transition: transform .2s ease, box-shadow .2s ease; }
+.support-dashboard-stat-card::after { position: absolute; right: -22px; bottom: -42px; width: 100px; height: 100px; border: 1px solid rgba(15,118,110,.06); border-radius: 50%; content: ''; }
+.support-dashboard-stat-card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(27,52,67,.09); }
+.support-dashboard-stat-icon { width: 40px; height: 40px; border-radius: 12px; }
+.support-dashboard-stat-icon.total, .support-dashboard-stat-icon.resolved { background: #e8f7f4; }
+.support-dashboard-stat-icon.open { background: #fff5df; }
+.support-dashboard-stat-icon.high { background: #fff0ef; }
+.support-dashboard-stat-badge { padding: 5px 9px; font-weight: 600; }
+.support-dashboard-stat-value { font-size: 31px; font-weight: 700; letter-spacing: -.04em; }
+.support-dashboard-stat-label { color: #7b8794; font-weight: 500; }
+.support-dashboard-grid { gap: 20px; }
+.support-dashboard-recent { box-shadow: 0 5px 20px rgba(27,52,67,.045); }
+.support-dashboard-ticket { padding: 16px 22px; transition: background .16s ease; }
+.support-dashboard-ticket:hover { background: #f7fbfa; }
+.support-dashboard-ticket-subject { font-size: 14px; font-weight: 600; }
+.support-dashboard-ticket-meta { color: #82909d; }
+.support-dashboard-breakdown { padding: 23px; }
+.support-dashboard-breakdown > .support-card-title { margin-bottom: 20px; }
+.support-dashboard-progress { height: 8px; background: #edf2f3; }
+.support-dashboard-progress-bar { border-radius: 99px; }
+.support-dashboard-help-card { padding: 23px; background: linear-gradient(145deg,#117f74,#095e57); box-shadow: 0 10px 24px rgba(15,118,110,.15); }
+.support-dashboard-help-button { padding: 9px 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 9px; font-weight: 600; transition: background .15s ease, transform .15s ease; }
+.support-dashboard-help-button:hover { background: rgba(255,255,255,.25); transform: translateY(-1px); }
+.support-table thead { background: #f6f9fa; }
+.support-table th { color: #728090; font-size: 11px; letter-spacing: .08em; }
+.support-table td { color: #475569; }
+.support-table tbody tr { transition: background .15s ease; }
+.support-table tbody tr:hover { background: #f5fbf9; }
+.support-table tbody tr:last-child td { border-bottom: 0; }
+.ticket-number { display: inline-flex; padding: 5px 8px; border-radius: 7px; background: #eaf7f5; font-size: 12px; }
+.ticket-id { max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.support-status { padding: 6px 10px; }
+.support-pagination { background: #fff; }
+.support-page-button { border-color: #e1e8eb; border-radius: 9px; font-weight: 500; transition: background .15s ease,border-color .15s ease,color .15s ease; }
+.support-page-button:hover:not(:disabled) { border-color: #91cfc6; background: #f0fdfa; }
+.support-page-button.active { background: #0f766e; }
+.support-input, .support-select, .support-form-input { border-color: #d9e2e7; border-radius: 10px; background-color: #fff; }
+.support-input:focus, .support-select:focus, .support-form-input:focus { border-color: #0f8a7e; box-shadow: 0 0 0 4px rgba(15,118,110,.1); }
+.support-form-card { box-shadow: 0 8px 28px rgba(27,52,67,.055); }
+.support-form-card > .support-card-header { padding: 24px 28px; }
+.support-form { padding: 30px 32px 32px; }
+.support-form-label { color: #344255; font-weight: 650; }
+.support-form-input { min-height: 46px; }
+.support-form-textarea { min-height: 170px; }
+.support-help-card { padding: 20px 22px; }
+.support-help-title { color: #253447; font-weight: 700; }
+.support-help-text { color: #758394; line-height: 1.55; }
+.support-empty-icon { border-radius: 15px; background: #eef8f6; color: #0f766e; }
+.support-login-page { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(140deg,#eaf7f4 0%,#f7fafb 46%,#edf3f6 100%); }
+.support-login-page::before, .support-login-page::after { position: absolute; z-index: -1; width: 390px; height: 390px; border: 1px solid rgba(15,118,110,.1); border-radius: 50%; content: ''; }
+.support-login-page::before { top: -190px; left: -135px; box-shadow: 0 0 0 32px rgba(15,118,110,.025),0 0 0 68px rgba(15,118,110,.02); }
+.support-login-page::after { right: -190px; bottom: -245px; box-shadow: 0 0 0 36px rgba(15,118,110,.025),0 0 0 76px rgba(15,118,110,.02); }
+.support-login-shell { max-width: 440px !important; }
+.support-login-card { padding: 38px !important; border-color: rgba(222,233,235,.9); border-radius: 20px; box-shadow: 0 22px 60px rgba(25,61,69,.11); }
+.support-login-mark { border-radius: 14px !important; background: linear-gradient(145deg,#12a091,#0b625b) !important; box-shadow: 0 8px 18px rgba(15,118,110,.25); }
+.support-login-heading h1 { letter-spacing: -.035em; }
+.support-login-heading p { margin-top: 7px !important; color: #758394 !important; }
+.support-login-card label { color: #344255 !important; font-weight: 600 !important; }
+.support-login-card input.support-input { height: 46px; padding: 0 14px; }
+.support-login-card button.support-btn { min-height: 46px; border-radius: 11px; }
+.support-login-shell > p { color: #7b8794 !important; }
+.support-login-shell > p a { color: #0f766e !important; }
+.support-page a:focus-visible, .support-page button:focus-visible, .support-page input:focus-visible, .support-page select:focus-visible, .support-page textarea:focus-visible { outline-color: rgba(15,118,110,.5); }
+
+@media (max-width: 700px) {
+  .support-container { padding-top: 26px; }
+  .support-dashboard-stat-card { padding: 17px; }
+  .support-form-card > .support-card-header { padding: 20px 22px; }
+  .support-form { padding: 24px 22px; }
+}
+@media (max-width: 480px) {
+  .support-container { padding-top: 22px; }
+  .support-login-card { padding: 27px 22px !important; border-radius: 17px; }
+  .support-dashboard-stat-card { padding: 14px; }
+  .support-dashboard-ticket { padding: 14px; }
+  .support-form-card > .support-card-header { padding: 18px 17px; }
+  .support-form { padding: 20px 17px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .support-page *, .support-page *::before, .support-page *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
