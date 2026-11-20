@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "app/api/endpointforcountries/route.js", "app/suspense2/page.js", "middleware.js.disabled", "app/layout.js", "app/test/page.js", "app/login/page.js", "app/subcategory/page.js"  ],
+  ],
   "exclude": ["node_modules"]
 }
